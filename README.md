@@ -1,11 +1,11 @@
-### Number Guessing Game - CS 351L AI Lab
+# Number Guessing Game - CS 351L AI Lab
 ## Instructor
-# Mr. Usama Arshad, PhD CS
+### Mr. Usama Arshad, PhD CS
 
 ## Student
-# Muhammad Shameer Awais
-# Registration No: 2022428
-# BS Cybersecurity - 5th Semester
+### Muhammad Shameer Awais
+### Registration No: 2022428
+### BS Cybersecurity - 5th Semester
 
 ## Project Overview
 This project includes multiple versions of a number-guessing game, each implementing different algorithms to guess a number that the player is thinking of. The number is between 1 and 100. The game has both non-AI and AI-based implementations.
