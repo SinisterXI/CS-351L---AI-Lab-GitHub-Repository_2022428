@@ -1,93 +1,165 @@
 import random
 
-# Non-AI Version: Player vs Computer
-def non_ai_version():
-    number = random.randint(1, 100)
-    guess = None
+def number_guessing_game():
+    # The computer selects a random number between 1 and 100
+    number_to_guess = random.randint(1, 100)
     attempts = 0
-    
-    while guess != number:
-        guess = int(input("Guess a number between 1 and 100: "))
+    max_attempts = 10  # Player has 10 attempts to guess the number
+
+    print("Welcome to the Number Guessing Game!")
+    print("Guess a number between 1 and 100. You have 10 attempts.")
+
+    # Loop for the player to make guesses
+    while attempts < max_attempts:
+        guess = int(input("Enter your guess: "))
         attempts += 1
-        
-        if guess < number:
+
+        if guess < number_to_guess:
             print("Too low!")
-        elif guess > number:
+        elif guess > number_to_guess:
             print("Too high!")
         else:
             print(f"Congratulations! You guessed the number in {attempts} attempts.")
+            return
 
-# AI Version: Binary Search (Computer vs Player)
-def binary_search_version(number):
+    print(f"Sorry, you've used all your attempts. The number was {number_to_guess}.")
+
+# Run the game
+number_guessing_game()
+def ai_number_guessing_game():
+    # Player selects a number
+    print("Think of a number between 1 and 100, and I (the AI) will try to guess it.")
     low = 1
     high = 100
     attempts = 0
-    
+
+    # Loop until the AI guesses the number correctly
     while low <= high:
-        mid = (low + high) // 2
-        print(f"AI guesses: {mid}")
+        guess = (low + high) // 2  # AI uses binary search to guess
         attempts += 1
-        
-        if mid < number:
-            low = mid + 1
-        elif mid > number:
-            high = mid - 1
-        else:
-            print(f"AI guessed the number {mid} in {attempts} attempts.")
-            break
 
-# BFS Version
-def bfs_version(number):
-    queue = list(range(1, 101))
+        print(f"AI's guess is: {guess}")
+        feedback = input("Enter 'h' if too high, 'l' if too low, or 'c' if correct: ").lower()
+
+        if feedback == 'c':
+            print(f"I (AI) guessed the number in {attempts} attempts!")
+            return
+        elif feedback == 'h':
+            high = guess - 1  # If too high, reduce the upper bound
+        elif feedback == 'l':
+            low = guess + 1  # If too low, increase the lower bound
+
+    print("Something went wrong!")
+
+# Run the AI version
+ai_number_guessing_game()
+
+from collections import deque
+
+def bfs_number_guessing_game():
+    # Player selects a number
+    print("Think of a number between 1 and 100, and I (the AI) will try to guess it.")
+    number_range = list(range(1, 101))
+    queue = deque(number_range)  # BFS uses a queue
     attempts = 0
-    
+
+    # Loop until the AI guesses the number
     while queue:
-        guess = queue.pop(0)
+        guess = queue.popleft()  # BFS takes from the front of the queue
         attempts += 1
-        print(f"AI guesses: {guess}")
-        
-        if guess == number:
-            print(f"AI guessed the number {guess} in {attempts} attempts.")
-            break
 
-# DFS Version
-def dfs_version(number):
-    stack = list(range(1, 101))
+        print(f"AI's guess is: {guess}")
+        feedback = input("Enter 'h' if too high, 'l' if too low, or 'c' if correct: ").lower()
+
+        if feedback == 'c':
+            print(f"I (AI) guessed the number in {attempts} attempts!")
+            return
+
+    print("Something went wrong!")
+
+# Run the BFS version
+bfs_number_guessing_game()
+
+
+
+def dfs_number_guessing_game():
+    # Player selects a number
+    print("Think of a number between 1 and 100, and I (the AI) will try to guess it.")
+    number_range = list(range(1, 101))
+    stack = number_range[::-1]  # DFS uses a stack (reverse to simulate depth-first search)
     attempts = 0
-    
+
+    # Loop until the AI guesses the number
     while stack:
-        guess = stack.pop()
+        guess = stack.pop()  # DFS takes from the end of the list
         attempts += 1
-        print(f"AI guesses: {guess}")
-        
-        if guess == number:
-            print(f"AI guessed the number {guess} in {attempts} attempts.")
-            break
 
-# Custom Algorithm (Simulated Annealing)
-def simulated_annealing_version(number):
-    current_guess = random.randint(1, 100)
+        print(f"AI's guess is: {guess}")
+        feedback = input("Enter 'h' if too high, 'l' if too low, or 'c' if correct: ").lower()
+
+        if feedback == 'c':
+            print(f"I (AI) guessed the number in {attempts} attempts!")
+            return
+
+    print("Something went wrong!")
+
+# Run the DFS version
+dfs_number_guessing_game()
+
+
+import random
+
+# Genetic Algorithm for guessing the number
+def ga_number_guessing_game():
+    print("Think of a number between 1 and 100, and I (the AI) will try to guess it using Genetic Algorithm.")
+
+    # Hyperparameters for the GA
+    population_size = 10
+    mutation_rate = 0.1
+    generations = 20
+
+    # Initialize the population with random guesses between 1 and 100
+    population = [random.randint(1, 100) for _ in range(population_size)]
     attempts = 0
-    temperature = 100
-    
-    while temperature > 0:
-        print(f"AI guesses: {current_guess}")
+
+    def fitness(guess, feedback):
+        """Fitness function based on how close the guess is to the number."""
+        return abs(feedback - guess)
+
+    # Loop for multiple generations
+    for gen in range(generations):
         attempts += 1
-        if current_guess == number:
-            print(f"AI guessed the number {current_guess} in {attempts} attempts.")
-            break
-        
-        temperature -= 1
-        next_guess = current_guess + random.choice([-1, 1]) * random.randint(1, temperature)
-        if next_guess > 0 and next_guess <= 100:
-            current_guess = next_guess
+        print(f"Generation {gen+1}")
 
-# Running the non-AI version (uncomment to run)
-# non_ai_version()
+        # AI guesses the best candidate from the population
+        guess = random.choice(population)
+        print(f"AI's guess: {guess}")
+        feedback = int(input("Enter how close the guess is (1-100) or '0' if correct: "))
 
-# Running AI versions with a fixed number (you can change this number for testing)
-number_to_guess = 57
-binary_search_version(number_to_guess)
-bfs_version(number_to_guess)
-dfs_version(number_to_guess)
-simulated_annealing_version(number_to_guess)
+        if feedback == 0:
+            print(f"I (AI) guessed the number in {attempts} attempts!")
+            return
+
+        # Sort population based on fitness (smaller distance to the feedback is better)
+        population = sorted(population, key=lambda x: fitness(x, feedback))
+
+        # Select the top 50% of the population (elitism)
+        top_half = population[:population_size//2]
+
+        # Generate new guesses through crossover and mutation
+        new_population = top_half.copy()
+
+        while len(new_population) < population_size:
+            parent1 = random.choice(top_half)
+            parent2 = random.choice(top_half)
+            child = (parent1 + parent2) // 2  # Simple crossover by averaging two parents
+            if random.random() < mutation_rate:
+                child += random.randint(-5, 5)  # Apply mutation by slightly altering the child
+            new_population.append(min(max(child, 1), 100))  # Ensure the guess is within the range
+
+        population = new_population
+
+    print("AI couldn't guess the number in the allowed generations.")
+
+# Run the Genetic Algorithm version
+ga_number_guessing_game()
