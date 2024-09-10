@@ -10,7 +10,6 @@
 ## Project Overview
 This project includes multiple versions of a number-guessing game, each implementing different algorithms to guess a number that the player is thinking of. The number is between 1 and 100. The game has both non-AI and AI-based implementations.
 
-##Versions
 # 1. Non-AI Version
 A simple number-guessing game where the computer selects a random number between 1 and 100. The player has 10 attempts to guess the number. The game provides feedback if the guess is too high or too low.
 
