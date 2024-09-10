@@ -1,3 +1,11 @@
+"""CS 351L - AI Lab
+Instructor: Mr. Usama Arshad, PhD CS
+Student Name: Muhammad Shameer Awais
+Registration No: 2022428
+BS Cybersecurity - 5th Semester"""
+
+"""This Simple number-guessing game where the computer randomly selects a number between 1 and 100, and the player has 10 attempts to guess it correctly."""
+#Non AI Version
 import random
 
 def number_guessing_game():
@@ -26,6 +34,10 @@ def number_guessing_game():
 
 # Run the game
 number_guessing_game()
+
+
+"""This AI-powered number guessing game uses binary search to guess a number that the player is thinking of between 1 and 100. The player provides feedback ('h', 'l', 'c') after each guess, indicating if the guess is too high, too low, or correct. The game continues until the AI guesses correctly or an error occurs."""
+#AI Version with Binary Search
 def ai_number_guessing_game():
     # Player selects a number
     print("Think of a number between 1 and 100, and I (the AI) will try to guess it.")
@@ -54,6 +66,11 @@ def ai_number_guessing_game():
 # Run the AI version
 ai_number_guessing_game()
 
+#. BFS Version
+"""This AI guessing game uses a Breadth-First Search (BFS) approach, where the AI guesses numbers sequentially from a queue.
+The player provides feedback ('h', 'l', 'c') after each guess, and the game continues until the AI correctly guesses the number.
+The AI guesses in ascending order from 1 to 100."""
+
 from collections import deque
 
 def bfs_number_guessing_game():
@@ -81,7 +98,10 @@ def bfs_number_guessing_game():
 bfs_number_guessing_game()
 
 
-
+#DFS Version
+"""This AI number guessing game uses a Depth-First Search (DFS) approach where the AI guesses numbers by popping them from a stack
+(starting with 100 down to 1). The player gives feedback ('h', 'l', 'c') after each guess, and the game continues until the AI guesses correctly.
+The AI guesses numbers in descending order."""
 def dfs_number_guessing_game():
     # Player selects a number
     print("Think of a number between 1 and 100, and I (the AI) will try to guess it.")
@@ -107,6 +127,12 @@ def dfs_number_guessing_game():
 dfs_number_guessing_game()
 
 
+#Genetic Algorithm
+"""This AI guessing game uses a Genetic Algorithm (GA) to find the number the player is thinking of.
+The GA starts with a random population of guesses and evolves over multiple generations by selecting, combining, and mutating guesses 
+based on how close they are to the correct number. The player provides feedback on each guess (indicating closeness or correctness), and 
+the GA uses this feedback to refine its guesses. The AI continues this process until it either guesses correctly or exhausts the maximum number 
+of generations."""
 import random
 
 # Genetic Algorithm for guessing the number
