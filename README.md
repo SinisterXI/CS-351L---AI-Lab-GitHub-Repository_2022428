@@ -1,29 +1,46 @@
-# Number Guessing Game - CS 351L AI Lab
-## Instructor
-### Mr. Usama Arshad, PhD CS
+# CS-351-AI-Lab
 
-## Student
-### Muhammad Shameer Awais
-### Registration No: 2022428
-### BS Cybersecurity - 5th Semester
+Welcome to the *CS-351 AI Lab* repository! This project contains implementations of various AI algorithms as part of the CS-351 AI Lab course. Each lab showcases different algorithms applied to solve problems using classic and heuristic search techniques.
 
-## Project Overview
-This project includes multiple versions of a number-guessing game, each implementing different algorithms to guess a number that the player is thinking of. The number is between 1 and 100. The game has both non-AI and AI-based implementations.
+## Table of Contents
 
-# 1. Non-AI Version
-A simple number-guessing game where the computer selects a random number between 1 and 100. The player has 10 attempts to guess the number. The game provides feedback if the guess is too high or too low.
+- [Lab 1: Introduction to Artificial Intelligence and Python Basics](#lab-1-introduction-to-artificial-intelligence-and-python-basics)
+  - [BFS](#bfs)
+  - [DFS](#dfs)
+  - [Simulated Annealing](#simulated-annealing)
+- [Lab 2: Introduction to Search in AI](#lab-2-introduction-to-search-in-ai)
+- [License](#license)
 
-# 2. AI Version with Binary Search
-In this version, the AI uses a binary search algorithm to guess the number. The player provides feedback indicating whether the guess is too high, too low, or correct. The AI adjusts its guesses based on the feedback.
+## Lab 1: Introduction to Artificial Intelligence and Python Basics
 
-# 3. AI Version with Breadth-First Search (BFS)
-This AI implementation uses Breadth-First Search (BFS) to guess the number. It sequentially guesses numbers from a queue and adjusts based on the player’s feedback.
+In this lab, I implemented and tested various search algorithms on a number guessing game:
 
-# 4. AI Version with Depth-First Search (DFS)
-This version uses Depth-First Search (DFS) where the AI guesses numbers by popping them from a stack in descending order. Feedback is used to adjust guesses.
+#### BFS
 
-# 5. AI Version with Genetic Algorithm (GA)
-The Genetic Algorithm (GA) implementation starts with a random population of guesses and evolves over generations. It selects, combines, and mutates guesses based on how close they are to the correct number.
+*Breadth-First Search (BFS)* explores all nodes at the present depth level before moving on to nodes at the next depth level. It is a complete and optimal search strategy for finite spaces.
 
-# Dependencies
-. Python 3.x
+#### DFS
+
+*Depth-First Search (DFS)* explores as far down as possible along a branch before backtracking. It is more memory-efficient but may not always find the optimal solution in large search spaces.
+
+#### Simulated Annealing
+
+*Simulated Annealing* is a probabilistic technique that approximates the global optimum of a given function. It is especially useful for optimization problems with large, complex search spaces.
+
+## Lab 2: Introduction to Search in AI
+
+In this lab, I implemented the *A Search Algorithm** to solve the Maze Runner game. A* is an informed search algorithm that uses heuristics to estimate the cost of reaching the goal, making it both complete and optimal under certain conditions.
+
+## Contact
+
+For any queries or assistance, feel free to reach out to the course instructor:
+
+*Mr. Usama Arshad*  
+[GitHub: usamajanjua9](https://github.com/usamajanjua9)
+
+## 🙋‍♂ Maintainer
+
+This repository is maintained by:
+
+*Shameer Awais*  
+[GitHub: SinisterXI](https://github.com/SinisterXI)
