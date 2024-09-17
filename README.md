@@ -7,7 +7,7 @@ Welcome to the *CS-351 AI Lab* repository! This project contains implementations
 - [Lab 1: Introduction to Artificial Intelligence and Python Basics](#lab-1-introduction-to-artificial-intelligence-and-python-basics)
   - [BFS](#bfs)
   - [DFS](#dfs)
-  - [Simulated Annealing](#simulated-annealing)
+  - [Genetic Algorithm](#Genetic Algorithm)
 - [Lab 2: Introduction to Search in AI](#lab-2-introduction-to-search-in-ai)
 - [License](#license)
 
@@ -23,9 +23,9 @@ In this lab, I implemented and tested various search algorithms on a number gues
 
 *Depth-First Search (DFS)* explores as far down as possible along a branch before backtracking. It is more memory-efficient but may not always find the optimal solution in large search spaces.
 
-#### Simulated Annealing
+#### Genetic Algorithm
 
-*Simulated Annealing* is a probabilistic technique that approximates the global optimum of a given function. It is especially useful for optimization problems with large, complex search spaces.
+*Genetic Algorithm* A Genetic Algorithm (GA) is a search heuristic inspired by the process of natural selection. 
 
 ## Lab 2: Introduction to Search in AI
 
