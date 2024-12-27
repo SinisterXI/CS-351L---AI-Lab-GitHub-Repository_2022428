@@ -7,7 +7,7 @@ Welcome to the *CS-351 AI Lab* repository! This project contains implementations
 - [Lab 1: Introduction to Artificial Intelligence and Python Basics](#lab-1-introduction-to-artificial-intelligence-and-python-basics)
   - [BFS](#bfs)
   - [DFS](#dfs)
-  - [Genetic Algorithm](#Genetic Algorithm)
+  - [Genetic Algorithm](Genetic Algorithm)
 - [Lab 2: Introduction to Search in AI](#lab-2-introduction-to-search-in-ai)
 - [License](#license)
 
